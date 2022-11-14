@@ -4,14 +4,14 @@ public class Funcionarios {
 
     private String nome;
     private String cargo;
-    private double salario;
+    private float salario;
     private String contratacaoData;
     private String RG;
     private String endereco;
     private static int NumeroFuncionarios;
     private int id;
 
-    public Funcionarios(String nome, String cargo, double salario, String contratacaoData, String RG, String endereco) {
+    public Funcionarios(String nome, String cargo, float salario, String contratacaoData, String RG, String endereco) {
         NumeroFuncionarios++;
         id = NumeroFuncionarios;
         this.nome = nome;
@@ -24,7 +24,7 @@ public class Funcionarios {
 
     @Override
     public String toString() {
-        return nome + "" + cargo;
+        return nome + " Cargo - " + cargo + " salario - " + salario + " RG - " + RG + " Data da contratação - " + contratacaoData + " Endereço - " + endereco;
     }
 
     public boolean Iqual(Funcionarios Funcionarios) {
@@ -55,11 +55,11 @@ public class Funcionarios {
         this.cargo = cargo;
     }
 
-    public double getSalario() {
+    public float getSalario() {
         return salario;
     }
 
-    public void setSalario(double salario) {
+    public void setSalario(float salario) {
         this.salario = salario;
     }
 
