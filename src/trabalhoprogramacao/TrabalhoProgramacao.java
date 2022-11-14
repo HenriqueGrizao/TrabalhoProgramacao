@@ -21,7 +21,7 @@ public class TrabalhoProgramacao {
         listaFuncionarios.add(t3);
         listaFuncionarios.add(t4);
         //listaFuncionarios.removeId(2);
-        //listaFuncionarios.autalizarAtributos(1, 's', "1,1");
+        listaFuncionarios.autalizarAtributos(1, 'r', "123.46.78-9");
 
         System.out.println(listaFuncionarios.buscarFuncionario(1));
         System.out.println(listaFuncionarios.buscarFuncionario(2));
