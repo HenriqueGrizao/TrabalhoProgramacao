@@ -1,5 +1,7 @@
 package Funcionarios;
 
+import static java.lang.Float.parseFloat;
+
 public class Funcionarios {
 
     private String nome;
@@ -76,7 +78,17 @@ public class Funcionarios {
     }
 
     public void setRG(String RG) {
-        this.RG = RG;
+        String RGFormatado = RG.replace(".", "").replace("-", "");
+        if (RGFormatado.length() != 9) {
+            System.err.println("Quntidade de digitos invalido");
+        } else {
+            try {
+                float teste = parseFloat(RGFormatado);
+                this.RG = RG;
+            } catch (Exception e) {
+                System.err.println("É permitido apenas numero");
+            }
+        }
     }
 
     public int getId() {
