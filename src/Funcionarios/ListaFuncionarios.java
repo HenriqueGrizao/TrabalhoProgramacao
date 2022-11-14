@@ -25,7 +25,7 @@ public class ListaFuncionarios {
         try {
             int idLista = acharIndice(id);
             if (id <= lista.length && id > 0) {
-                for (int i = id; i < idAtual; i++) {
+                for (int i = idLista; i < idAtual; i++) {
                     lista[i] = lista[i + 1];
                 }
                 idAtual--;
