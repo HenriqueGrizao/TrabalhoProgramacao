@@ -21,7 +21,11 @@ public class ListaFuncionarios {
         idAtual++;
     }
 
-    public void removeId(int id) {
+    public int getIdAtual() {
+        return idAtual;
+    }
+
+    public boolean removeId(int id) {
         try {
             int idLista = acharIndice(id);
             if (id <= lista.length && id > 0) {
@@ -30,8 +34,10 @@ public class ListaFuncionarios {
                 }
                 idAtual--;
             }
+            System.out.println("trfrtfyrftyu");
+            return true;
         } catch (IllegalArgumentException e) {
-            System.err.println("Não foi possivel achar esse id");
+            return false;
         }
     }
 
@@ -51,6 +57,14 @@ public class ListaFuncionarios {
         } catch (IllegalArgumentException e) {
             System.err.println("Não foi possivel achar esse id");
             return "";
+        }
+    }
+
+    public Funcionarios getFuncionario(int id) {
+        try {
+            return lista[acharIndice(id)];
+        } catch (IllegalArgumentException e) {
+          throw new IllegalArgumentException();
         }
     }
 
@@ -93,29 +107,4 @@ public class ListaFuncionarios {
             }
         }
     }
-
-//    public void autalizarNome(int id, String nome) {
-//        lista[id].setNome(nome);
-//    }
-//
-//    public void autalizarcargo(int id, String cargo) {
-//        lista[id].setCargo(cargo);
-//    }
-//
-//    public void autalizarsalario(int id, float salario) {
-//        lista[id].setSalario(salario);
-//    }
-//
-//    public void autalizarcontratacaoData(int id, String contratacaoData) {
-//        lista[id].setContratacaoData(contratacaoData);
-//    }
-//
-//    public void autalizarRG(int id, String RG) {
-//        lista[id].setRG(RG);
-//    }
-//
-//    public void autalizarEndereco(int id, String endereco) {
-//        lista[id].setEndereco(endereco);
-//    }
-
 }

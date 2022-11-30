@@ -29,10 +29,6 @@ public class Funcionarios {
         return nome + " Cargo - " + cargo + " salario - " + salario + " RG - " + RG + " Data da contratação - " + contratacaoData + " Endereço - " + endereco;
     }
 
-    public boolean Iqual(Funcionarios Funcionarios) {
-        return this.id == Funcionarios.getId();
-    }
-
     public String getEndereco() {
         return endereco;
     }
