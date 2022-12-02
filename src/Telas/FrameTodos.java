@@ -38,6 +38,8 @@ public class FrameTodos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tabela de funcionários");
+        setResizable(false);
 
         TblFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,6 +136,10 @@ public class FrameTodos extends javax.swing.JFrame {
         AutalizarFuncionario();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    /**
+     * Atualiza toda a tabela colocando todos os 
+     * funcionários que estam salvos no ListaFuncionario 
+     */
     public void AutalizarTabela() {
         for (int i = 1; i <= TrabalhoProgramacao.listaFuncionarios.getIdAtual(); i++) {
             try {
@@ -143,7 +149,10 @@ public class FrameTodos extends javax.swing.JFrame {
             }
         }
     }
-
+    /**
+     * Adiciona um linha com base nos atributos  do funcionario 
+     * @param func funcionário que vai ser lido
+     */
     private void AdicionarLinha(Funcionarios func) {
         DefaultTableModel tabelaFuncionarios;
 

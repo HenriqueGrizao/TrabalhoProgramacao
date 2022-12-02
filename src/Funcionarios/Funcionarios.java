@@ -3,7 +3,8 @@ package Funcionarios;
 import static java.lang.Float.parseFloat;
 
 public class Funcionarios {
-
+    
+//Declaração dos atributos
     private String nome;
     private String cargo;
     private float salario;
@@ -28,7 +29,7 @@ public class Funcionarios {
     public String toString() {
         return nome + " Cargo - " + cargo + " salario - " + salario + " RG - " + RG + " Data da contratação - " + contratacaoData + " Endereço - " + endereco;
     }
-
+//Inicio Getters e Setters
     public String getEndereco() {
         return endereco;
     }

@@ -46,6 +46,8 @@ public class FrameAdicionar extends javax.swing.JFrame {
         btnComfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Adicionar");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -199,7 +201,9 @@ public class FrameAdicionar extends javax.swing.JFrame {
         TrabalhoProgramacao.inicial.setVisible(true);
         TrabalhoProgramacao.adicionar.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
-
+/**
+ * Limpa todos os jTextField
+ */
     private void limpar() {
         tfCargo.setText("");
         tfSalario.setText("");
@@ -207,7 +211,10 @@ public class FrameAdicionar extends javax.swing.JFrame {
         tfRG.setText("");
         tfNome.setText("");
     }
-
+/**
+ * Verifica se as informações inseridas  no tf correspondem  ao esperado, transforma
+ * essa informações em um objeto Funcionarios e o salva no ListaFuncionario
+ */
     private void salvar() {
         //declaração das variaveis
         String nome = "";
@@ -219,6 +226,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
         boolean isRight = true;
         //fim da declaração das variaveirs
 
+        //verifica se não está tentado adicionar com algum campos vazios
         if (tfNome.getText().isBlank()) {
             lbAviso.setText("Campo do nome está vazio");
             tfNome.grabFocus();
@@ -243,7 +251,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
             endereco = tfEndereco.getText();
         }
 
-        //logica do rg
+        //Verifica se o RG está correto (9 dígitos e sem letras ou caracteres especiais)
         rg = tfRG.getText().replace(".", "").replace("-", "");
         if (rg.length() != 9) {
             lbAviso.setText("Quntidade de digitos no RG inválido");
@@ -261,7 +269,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
 
         String data = now.getDayOfMonth() + "/" + now.getMonth().getValue() + "/" + now.getYear();
 
-        //logica salario
+        //Verifica se o salário está correto (maior  ou igual a 0 e se é um número)
         try {
             salario = Float.parseFloat(tfSalario.getText().replace(',', '.'));
             if (salario <= 0) {
@@ -275,7 +283,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
             isRight = false;
         }
 
-        //Salvado no Arrey
+        //Salvado o Funcionario no Arrey da clase ListaFuncionario
         if (isRight) {
             Funcionarios T = new Funcionarios(nome, cargo, salario, data, rg, endereco);
             TrabalhoProgramacao.listaFuncionarios.add(T);

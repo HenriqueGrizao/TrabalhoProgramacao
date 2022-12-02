@@ -6,7 +6,12 @@ public class ListaFuncionarios {
 
     Funcionarios[] lista = new Funcionarios[10];
     private int idAtual = 0;
-
+    
+    /**
+    *esse método adiciona um funcionario no arrey
+    *caso o vetor esteja cheio, dobra o tamanho  disponível
+     * @param funcionario funcionario que vai ser adicionado
+    */
     public void add(Funcionarios funcionario) {
         try {
             lista[idAtual] = funcionario;
@@ -20,11 +25,15 @@ public class ListaFuncionarios {
         }
         idAtual++;
     }
-
+    
     public int getIdAtual() {
         return idAtual;
     }
-
+    
+    /**
+     * Remove um funcionário salvo no vetor baseado no seu id
+     * @param id id do funcionário
+     */
     public void removeId(int id) {
         try {
             int idLista = acharIndice(id);
@@ -50,6 +59,12 @@ public class ListaFuncionarios {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Busca um funcionário baseado em seu id e o
+     * retorna convertido em String
+     * @param id id do funcionário
+     * @return funcionário convertido em string 
+     */
     public String buscarFuncionario(int id) {
         try {
             int idLista = acharIndice(id);
@@ -59,7 +74,11 @@ public class ListaFuncionarios {
             return "";
         }
     }
-
+/**
+ * busca e retorna um funcionario baseado em seu id
+ * @param id id do funcionario
+ * @return Obejto funcionario basedo no seu id
+ */
     public Funcionarios getFuncionario(int id) {
         try {
             return lista[acharIndice(id)];
@@ -68,6 +87,11 @@ public class ListaFuncionarios {
         }
     }
     
+    /**
+     * busca e retorna um funcionario baseado em seu nome
+     * @param nome nome do funcionário 
+     * @return Obejto funcionario basedo no seu nome
+     */
     public Funcionarios BuscarNome(String nome){
         for (int i = 0; i < idAtual; i++) {
             if(lista[i].getNome().equals(nome)){
@@ -75,8 +99,14 @@ public class ListaFuncionarios {
             }
         }
         throw new IllegalArgumentException();
+        
     }
-
+/**
+ * Atualizar  um atributo de um funcionário  baseado em seu id 
+ * @param id id do funcionário
+ * @param atributoMudar atributo  a ser alterado (n-nome, c-cargo, s-salario, d-data, r-rg, e-enderco)
+ * @param novoAtributo atributo que substituirá  o antigo 
+ */
     public void autalizarAtributos(int id, char atributoMudar, String novoAtributo) {
         try {
             int idLista = acharIndice(id);

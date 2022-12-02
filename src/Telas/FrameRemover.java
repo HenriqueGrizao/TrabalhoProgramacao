@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Telas;
- 
+
 import Funcionarios.Funcionarios;
 
 /**
@@ -40,6 +40,8 @@ public class FrameRemover extends javax.swing.JFrame {
         btnComfirmarNome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Remover");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -151,7 +153,10 @@ public class FrameRemover extends javax.swing.JFrame {
         TrabalhoProgramacao.inicial.setVisible(true);
         TrabalhoProgramacao.revover.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
-  
+    /**
+     * certifica se o id inserido no tfID é válido e remove o funcionário
+     * baseado no id
+     */
     private void removerID() {
         int id = 0;
         boolean isRight = true;
@@ -163,22 +168,25 @@ public class FrameRemover extends javax.swing.JFrame {
         }
         if (isRight) {
             try {
-               Funcionarios func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(id);
-               TrabalhoProgramacao.listaFuncionarios.removeId(id);
-               lbAviso.setText("<html>Removido funcionário de nome " + func.getNome() + " e id " + func.getId() + "</html>");
+                Funcionarios func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(id);
+                TrabalhoProgramacao.listaFuncionarios.removeId(id);
+                lbAviso.setText("<html>Removido funcionário de nome " + func.getNome() + " e id " + func.getId() + "</html>");
             } catch (Exception e) {
                 lbAviso.setText("Não foi posivel encontrara esse id");
             }
-            
-            
+
             lbAviso.setText("Não foi posivel achar esse id");
-            
+
         }
         tfID.setText("");
     }
-    
-    private void removerNome(){
-    int id;
+
+    /**
+     * certifica se o nome inserido no tfBuscaNome é válido e remove o
+     * funcionário baseado no nome
+     */
+    private void removerNome() {
+        int id;
         try {
             Funcionarios func = TrabalhoProgramacao.listaFuncionarios.BuscarNome(tfNomeBusca.getText());
             id = func.getId();

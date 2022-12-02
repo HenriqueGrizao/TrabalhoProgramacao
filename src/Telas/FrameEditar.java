@@ -53,6 +53,8 @@ public class FrameEditar extends javax.swing.JFrame {
         btnBuscaNome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Editar");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -266,7 +268,10 @@ public class FrameEditar extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Lê as informações colocadas no jTextField, verifica se são validas e salva 
+     * nos atributos correspondentes do funcionário 
+     */
     private void salvar() {
         boolean isRight = true;
         func.setNome(tfNome.getText());
@@ -293,7 +298,9 @@ public class FrameEditar extends javax.swing.JFrame {
             limpar();
         }
     }
-
+    /**
+     * Limpa todosos jTextField
+     */
     private void limpar() {
         tfCargo.setText("");
         tfSalario.setText("");
@@ -346,7 +353,10 @@ public class FrameEditar extends javax.swing.JFrame {
             tfEndereco.grabFocus();
         }
     }//GEN-LAST:event_tfSalarioKeyPressed
-
+    /**
+     * Busca um funcionário com base no id inserido no tfID e salva as
+     * informações nos jTextField correspondentes
+     */
     private void buscarID() {
 
         try {
@@ -389,6 +399,10 @@ public class FrameEditar extends javax.swing.JFrame {
     private void btnBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaNomeActionPerformed
         buscarNome();
     }//GEN-LAST:event_btnBuscaNomeActionPerformed
+    /**
+     * Busca um funcionário com base no nome inserido no tfNomeBusca e salva as
+     * informações nos jTextField correspondentes
+     */
     private void buscarNome() {
         try {
             func = TrabalhoProgramacao.listaFuncionarios.BuscarNome(tfNomeBusca.getText());
