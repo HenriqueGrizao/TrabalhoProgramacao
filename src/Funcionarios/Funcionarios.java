@@ -58,7 +58,11 @@ public class Funcionarios {
     }
 
     public void setSalario(float salario) {
-        this.salario = salario;
+        if(salario >= 0){
+            this.salario = salario;
+        }else{
+            throw new IllegalArgumentException();
+        }
     }
 
     public String getContratacaoData() {
@@ -76,13 +80,13 @@ public class Funcionarios {
     public void setRG(String RG) {
         String RGFormatado = RG.replace(".", "").replace("-", "");
         if (RGFormatado.length() != 9) {
-            System.err.println("Quntidade de digitos invalido");
+            throw new IllegalArgumentException(); 
         } else {
             try {
                 float teste = parseFloat(RGFormatado);
                 this.RG = RG;
             } catch (Exception e) {
-                System.err.println("É permitido apenas numero");
+                throw new IllegalArgumentException();
             }
         }
     }

@@ -34,7 +34,6 @@ public class ListaFuncionarios {
                 }
                 idAtual--;
             }
-            System.out.println("trfrtfyrftyu");
             return true;
         } catch (IllegalArgumentException e) {
             return false;

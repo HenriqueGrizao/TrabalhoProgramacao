@@ -71,11 +71,6 @@ public class FrameAdicionar extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel8.setText("Endereço");
 
-        tfEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEnderecoActionPerformed(evt);
-            }
-        });
         tfEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfEnderecoKeyPressed(evt);
@@ -110,7 +105,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
         lbAviso.setForeground(new java.awt.Color(255, 51, 51));
         lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbAviso.setText("Preecha todos os campos");
-        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         btnVoltar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnVoltar.setText("Voltar");
@@ -121,7 +116,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
         });
 
         btnComfirmar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnComfirmar.setText("Comfirmar");
+        btnComfirmar.setText("Confirmar");
         btnComfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnComfirmarActionPerformed(evt);
@@ -146,7 +141,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
                                 .addComponent(lbAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 6, Short.MAX_VALUE))
+                                .addGap(0, 10, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
@@ -328,10 +323,6 @@ public class FrameAdicionar extends javax.swing.JFrame {
         lbAviso.setText("Preencha todos os campos");
         limpar();
     }//GEN-LAST:event_formWindowActivated
-
-    private void tfEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEnderecoActionPerformed
 
     /**
      * @param args the command line arguments

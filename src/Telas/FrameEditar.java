@@ -238,15 +238,32 @@ public class FrameEditar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvar() {
+        boolean isRight = true;
         func.setNome(tfNome.getText());
         func.setCargo(tfCargo.getText());
         func.setEndereco(tfEndereco.getText());
-        func.setRG(tfRG.getText());
-        func.setSalario(Float.parseFloat(tfSalario.getText()));
-        lbAviso.setText("Insira o id");
-        limpar();
+        try {
+            func.setRG(tfRG.getText());
+        } catch (IllegalArgumentException e) {
+            lbAviso.setText("Número inserido no RG é valido");
+            isRight = false;
+        }
+        try {
+            func.setSalario(Float.parseFloat(tfSalario.getText()));
+        } catch (NumberFormatException e) {
+            lbAviso.setText("Valor inválido inserido no salario");
+            isRight = false;
+        } catch (IllegalArgumentException e) {
+            lbAviso.setText("Salário inserido invalido");
+            isRight = false;
+        }
+        
+        if (isRight) {
+            lbAviso.setText("Insira o id");
+            limpar();
+        }
     }
-
+    
     private void limpar() {
         tfCargo.setText("");
         tfSalario.setText("");
@@ -298,19 +315,26 @@ public class FrameEditar extends javax.swing.JFrame {
             tfEndereco.grabFocus();
         }
     }//GEN-LAST:event_tfSalarioKeyPressed
-
-    private void buscar(){
-        tfNome.grabFocus();
-        func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(Integer.parseInt(tfID.getText()));
-        tfNome.setText(func.getNome());
-        tfCargo.setText(func.getCargo());
-        tfEndereco.setText(func.getEndereco());
-        tfRG.setText(func.getRG());
-        tfSalario.setText(String.valueOf(func.getSalario()));
-        lbAviso.setText("Edite as informações");
+    
+    private void buscar() {
+        
+        try {
+            func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(Integer.parseInt(tfID.getText()));
+            tfNome.setText(func.getNome());
+            tfCargo.setText(func.getCargo());
+            tfEndereco.setText(func.getEndereco());
+            tfRG.setText(func.getRG());
+            tfSalario.setText(String.valueOf(func.getSalario()));
+            lbAviso.setText("Edite as informações");
+            tfNome.grabFocus();
+        } catch (IllegalArgumentException e) {
+            lbAviso.setText("Não foi posivel encontar este id");
+            limpar();
+        }
+        
     }
     
-    
+
     private void btnConfirmaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaIDActionPerformed
         buscar();
     }//GEN-LAST:event_btnConfirmaIDActionPerformed

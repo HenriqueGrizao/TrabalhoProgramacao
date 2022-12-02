@@ -47,6 +47,8 @@ public class FrameBuscar extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnConfirmaID = new javax.swing.JButton();
         tfID = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        tfData = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -60,28 +62,13 @@ public class FrameBuscar extends javax.swing.JFrame {
         jLabel1.setText("<html>Buscar funcionário</html>");
 
         tfCargo.setEditable(false);
-        tfCargo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfCargoKeyPressed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setText("Nome");
 
         tfRG.setEditable(false);
-        tfRG.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfRGKeyPressed(evt);
-            }
-        });
 
         tfNome.setEditable(false);
-        tfNome.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfNomeKeyPressed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel4.setText("RG");
@@ -90,7 +77,7 @@ public class FrameBuscar extends javax.swing.JFrame {
         lbAviso.setForeground(new java.awt.Color(255, 51, 51));
         lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbAviso.setText("Insira o id");
-        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         btnVoltar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnVoltar.setText("Voltar");
@@ -110,23 +97,8 @@ public class FrameBuscar extends javax.swing.JFrame {
         jLabel8.setText("Endereço");
 
         tfEndereco.setEditable(false);
-        tfEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEnderecoActionPerformed(evt);
-            }
-        });
-        tfEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfEnderecoKeyPressed(evt);
-            }
-        });
 
         tfSalario.setEditable(false);
-        tfSalario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tfSalarioKeyPressed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -148,6 +120,11 @@ public class FrameBuscar extends javax.swing.JFrame {
                 tfIDKeyPressed(evt);
             }
         });
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel9.setText("Data contratação");
+
+        tfData.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,7 +161,11 @@ public class FrameBuscar extends javax.swing.JFrame {
                         .addComponent(tfID))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnConfirmaID)))
+                        .addComponent(btnConfirmaID))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfData)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -198,9 +179,9 @@ public class FrameBuscar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnConfirmaID)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,6 +203,10 @@ public class FrameBuscar extends javax.swing.JFrame {
                     .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAviso)
                     .addComponent(btnVoltar))
                 .addGap(30, 30, 30))
@@ -231,16 +216,6 @@ public class FrameBuscar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void salvar() {
-        func.setNome(tfNome.getText());
-        func.setCargo(tfCargo.getText());
-        func.setEndereco(tfEndereco.getText());
-        func.setRG(tfRG.getText());
-        func.setSalario(Float.parseFloat(tfSalario.getText()));
-        lbAviso.setText("Insira o id");
-        limpar();
-    }
-
     private void limpar() {
         tfCargo.setText("");
         tfSalario.setText("");
@@ -248,46 +223,13 @@ public class FrameBuscar extends javax.swing.JFrame {
         tfRG.setText("");
         tfNome.setText("");
         tfID.setText("");
+        tfData.setText("");
     }
-
-    private void tfCargoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCargoKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tfSalario.grabFocus();
-        }
-    }//GEN-LAST:event_tfCargoKeyPressed
-
-    private void tfRGKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfRGKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tfCargo.grabFocus();
-        }
-    }//GEN-LAST:event_tfRGKeyPressed
-
-    private void tfNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tfRG.grabFocus();
-        }
-    }//GEN-LAST:event_tfNomeKeyPressed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         TrabalhoProgramacao.inicial.setVisible(true);
         TrabalhoProgramacao.buscar.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void tfEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEnderecoActionPerformed
-
-    private void tfEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEnderecoKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            salvar();
-        }
-    }//GEN-LAST:event_tfEnderecoKeyPressed
-
-    private void tfSalarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSalarioKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            tfEndereco.grabFocus();
-        }
-    }//GEN-LAST:event_tfSalarioKeyPressed
 
     private void btnConfirmaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaIDActionPerformed
         buscar();
@@ -311,10 +253,13 @@ public class FrameBuscar extends javax.swing.JFrame {
             tfEndereco.setText(func.getEndereco());
             tfRG.setText(func.getRG());
             tfSalario.setText(String.valueOf(func.getSalario()));
+            tfData.setText(func.getContratacaoData());
             lbAviso.setText("Edite as informações");
         } catch (NumberFormatException e) {
+            limpar();
             lbAviso.setText("Não é um numaro valido");
         } catch (IllegalArgumentException e) {
+            limpar();
             lbAviso.setText("Não foi posivel achar esse id");
         }
 
@@ -367,8 +312,10 @@ public class FrameBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbAviso;
     private javax.swing.JTextField tfCargo;
+    private javax.swing.JTextField tfData;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfNome;
