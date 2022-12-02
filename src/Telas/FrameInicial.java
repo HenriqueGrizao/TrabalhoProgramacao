@@ -42,28 +42,28 @@ public class FrameInicial extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>Menu inicial</html>");
 
-        btnRemover.setText("<html><h2>Remover um funcionario</h2></html>");
+        btnRemover.setText("<html><h2>Remover um funcionário</h2></html>");
         btnRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoverActionPerformed(evt);
             }
         });
 
-        btnAdicionar.setText("<html><h2>Adicionar um funionario</h2></html>");
+        btnAdicionar.setText("<html><h2>Adicionar um funcionário</h2></html>");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarActionPerformed(evt);
             }
         });
 
-        btnEditar.setText("<html><h2>Editar um funcionario</h2></html>");
+        btnEditar.setText("<html><h2>Editar um funcionário</h2></html>");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
 
-        btnBuscar.setText("<html><h2>Buscar um funcionario</h2></html>");
+        btnBuscar.setText("<html><h2>Buscar um funcionário</h2></html>");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -77,7 +77,7 @@ public class FrameInicial extends javax.swing.JFrame {
             }
         });
 
-        btnTodos.setText("<html><h2>Ver todos os funionarios </h2></html>");
+        btnTodos.setText("<html><h2>Ver todos os funcionários </h2></html>");
         btnTodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTodosActionPerformed(evt);
@@ -86,7 +86,7 @@ public class FrameInicial extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("<html>Selecione a opição desejada</html>");
+        jLabel2.setText("<html>Selecione a opção desejada</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,13 +98,13 @@ public class FrameInicial extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAdicionar)
+                            .addComponent(btnTodos, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                             .addComponent(btnEditar)
-                            .addComponent(btnTodos, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRemover, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAdicionar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnRemover, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(btnBuscar)
                             .addComponent(btnSair)))
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
@@ -162,7 +162,8 @@ public class FrameInicial extends javax.swing.JFrame {
     private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosActionPerformed
         TrabalhoProgramacao.inicial.setVisible(false);
         FrameTodos todo = new FrameTodos();
-       todo.setVisible(true);
+        todo.setVisible(true);
+        todo.AutalizarTabela();
     }//GEN-LAST:event_btnTodosActionPerformed
 
     /**

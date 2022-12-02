@@ -49,6 +49,7 @@ public class FrameBuscar extends javax.swing.JFrame {
         tfID = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         tfData = new javax.swing.JTextField();
+        btnLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -91,7 +92,7 @@ public class FrameBuscar extends javax.swing.JFrame {
         jLabel6.setText("Cargo");
 
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel7.setText("Salario");
+        jLabel7.setText("Salário");
 
         jLabel8.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel8.setText("Endereço");
@@ -102,7 +103,7 @@ public class FrameBuscar extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<html>Digite o no id do funcionario que deseja buscar</html>");
+        jLabel3.setText("<html>Digite o id do funcionário que deseja buscar</html>");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("ID");
@@ -125,6 +126,14 @@ public class FrameBuscar extends javax.swing.JFrame {
         jLabel9.setText("Data contratação");
 
         tfData.setEditable(false);
+
+        btnLimpar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,7 +159,8 @@ public class FrameBuscar extends javax.swing.JFrame {
                             .addComponent(tfCargo)
                             .addComponent(tfSalario)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
                         .addComponent(lbAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
@@ -205,10 +215,11 @@ public class FrameBuscar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAviso)
-                    .addComponent(btnVoltar))
+                    .addComponent(btnVoltar)
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -245,6 +256,10 @@ public class FrameBuscar extends javax.swing.JFrame {
             buscar();
         }
     }//GEN-LAST:event_tfIDKeyPressed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        limpar();
+    }//GEN-LAST:event_btnLimparActionPerformed
     private void buscar() {
         try {
             func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(Integer.parseInt(tfID.getText()));
@@ -254,7 +269,7 @@ public class FrameBuscar extends javax.swing.JFrame {
             tfRG.setText(func.getRG());
             tfSalario.setText(String.valueOf(func.getSalario()));
             tfData.setText(func.getContratacaoData());
-            lbAviso.setText("Edite as informações");
+            lbAviso.setText("Funcionário encontrado");
         } catch (NumberFormatException e) {
             limpar();
             lbAviso.setText("Não é um numaro valido");
@@ -303,6 +318,7 @@ public class FrameBuscar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmaID;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

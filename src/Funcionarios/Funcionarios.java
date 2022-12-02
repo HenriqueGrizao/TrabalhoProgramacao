@@ -80,12 +80,15 @@ public class Funcionarios {
     public void setRG(String RG) {
         String RGFormatado = RG.replace(".", "").replace("-", "");
         if (RGFormatado.length() != 9) {
+            System.out.print("Tamanho");
             throw new IllegalArgumentException(); 
+            
         } else {
             try {
                 float teste = parseFloat(RGFormatado);
                 this.RG = RG;
             } catch (Exception e) {
+                System.out.println("numero");
                 throw new IllegalArgumentException();
             }
         }

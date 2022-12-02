@@ -88,7 +88,7 @@ public class FrameEditar extends javax.swing.JFrame {
         lbAviso.setForeground(new java.awt.Color(255, 51, 51));
         lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbAviso.setText("Insira o id");
-        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(null));
 
         btnVoltar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnVoltar.setText("Voltar");
@@ -134,7 +134,7 @@ public class FrameEditar extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<html>Digite o no id do funcionario que deseja editar</html>");
+        jLabel3.setText("<html>Digite o id do funcionario que deseja editar</html>");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("ID");
@@ -245,7 +245,7 @@ public class FrameEditar extends javax.swing.JFrame {
         try {
             func.setRG(tfRG.getText());
         } catch (IllegalArgumentException e) {
-            lbAviso.setText("Número inserido no RG é valido");
+            lbAviso.setText("Número inserido no RG não é valido");
             isRight = false;
         }
         try {

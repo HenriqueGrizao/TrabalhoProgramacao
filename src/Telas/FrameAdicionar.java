@@ -66,7 +66,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
         jLabel6.setText("Cargo");
 
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel7.setText("Salario");
+        jLabel7.setText("Salário");
 
         jLabel8.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel8.setText("Endereço");
@@ -265,12 +265,12 @@ public class FrameAdicionar extends javax.swing.JFrame {
         try {
             salario = Float.parseFloat(tfSalario.getText());
             if (salario <= 0) {
-                lbAviso.setText("Valor do salario inválido");
+                lbAviso.setText("Valor do salário inválido");
                 tfSalario.grabFocus();
                 isRight = false;
             }
         } catch (NumberFormatException e) {
-            lbAviso.setText("Numero do salario Inválido ");
+            lbAviso.setText("Numero do salário Inválido ");
             tfRG.grabFocus();
             isRight = false;
         }
