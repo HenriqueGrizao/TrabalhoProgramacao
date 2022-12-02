@@ -34,13 +34,10 @@ public class FrameTodos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JToggleButton();
+        lbAviso = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
 
         TblFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,6 +71,20 @@ public class FrameTodos extends javax.swing.JFrame {
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSalvar.setText("Salvar informações ");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        lbAviso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbAviso.setText("Suseso na construção da tabela");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("<html>Aperte ENTER após finalizar a edição de um campo </html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,12 +93,15 @@ public class FrameTodos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbAviso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -95,13 +109,16 @@ public class FrameTodos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar)
-                    .addComponent(btnSalvar))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(btnSalvar)
+                    .addComponent(lbAviso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -113,18 +130,19 @@ public class FrameTodos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        AutalizarFuncionario();
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    public void AutalizarTabela() {
         for (int i = 1; i <= TrabalhoProgramacao.listaFuncionarios.getIdAtual(); i++) {
             try {
                 AdicionarLinha(TrabalhoProgramacao.listaFuncionarios.getFuncionario(i));
             } catch (ArrayIndexOutOfBoundsException e) {
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
             }
-            
         }
-        //AdicionarLinha(TrabalhoProgramacao.listaFuncionarios.getFuncionario(1));
-        //AdicionarLinha(TrabalhoProgramacao.listaFuncionarios.getFuncionario(2));
-    }//GEN-LAST:event_formWindowActivated
+    }
 
     private void AdicionarLinha(Funcionarios func) {
         DefaultTableModel tabelaFuncionarios;
@@ -140,6 +158,49 @@ public class FrameTodos extends javax.swing.JFrame {
             func.getEndereco(),
             func.getContratacaoData(),};
         tabelaFuncionarios.addRow(ListaFuncionario);
+    }
+
+    private void AutalizarFuncionario() {
+        DefaultTableModel tabelaFuncionarios;
+        boolean isRight = true;
+        tabelaFuncionarios = (DefaultTableModel) TblFuncionario.getModel();
+        for (int i = 0; i < tabelaFuncionarios.getRowCount(); i++) {
+            Funcionarios func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(Integer.parseInt(String.valueOf(tabelaFuncionarios.getValueAt(i, 1))));
+            for (int j = 0; j < tabelaFuncionarios.getColumnCount(); j++) {
+                String temporaria = String.valueOf(tabelaFuncionarios.getValueAt(i, j));
+                switch (j) {
+                    case 0:
+                        func.setNome(temporaria);
+                        break;
+                    case 2:
+                        try {
+                        func.setRG(temporaria);
+                    } catch (IllegalArgumentException e) {
+                        lbAviso.setText("RG do ID  " + String.valueOf(tabelaFuncionarios.getValueAt(i, 1)) + " invalido");
+                        isRight = false;
+                    }
+
+                    break;
+                    case 3:
+                        func.setCargo(temporaria);
+                        break;
+                    case 4:
+                        try {
+                        func.setSalario(Float.parseFloat(temporaria));
+                    } catch (IllegalArgumentException e) {
+                         lbAviso.setText("Salario do ID  " + String.valueOf(tabelaFuncionarios.getValueAt(i, 1)) + " invalido");
+                         isRight = false;
+                    }
+                    break;
+                    case 5:
+                        func.setEndereco(temporaria);
+                        break;
+                }
+            }
+        }
+        if (isRight) {
+            lbAviso.setText("Informações salvas");
+        }
     }
 
     /**
@@ -182,6 +243,8 @@ public class FrameTodos extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnSalvar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbAviso;
     // End of variables declaration//GEN-END:variables
 }
