@@ -4,7 +4,7 @@ import static java.lang.Float.parseFloat;
 
 public class ListaFuncionarios {
 
-    Funcionarios[] lista = new Funcionarios[3];
+    Funcionarios[] lista = new Funcionarios[10];
     private int idAtual = 0;
 
     public void add(Funcionarios funcionario) {
@@ -25,7 +25,7 @@ public class ListaFuncionarios {
         return idAtual;
     }
 
-    public boolean removeId(int id) {
+    public void removeId(int id) {
         try {
             int idLista = acharIndice(id);
             if (id <= lista.length && id > 0) {
@@ -33,10 +33,11 @@ public class ListaFuncionarios {
                     lista[i] = lista[i + 1];
                 }
                 idAtual--;
+            }else{
+                throw new IllegalArgumentException();
             }
-            return true;
         } catch (IllegalArgumentException e) {
-            return false;
+            throw new IllegalArgumentException();
         }
     }
 
@@ -65,6 +66,15 @@ public class ListaFuncionarios {
         } catch (IllegalArgumentException e) {
           throw new IllegalArgumentException();
         }
+    }
+    
+    public Funcionarios BuscarNome(String nome){
+        for (int i = 0; i < idAtual; i++) {
+            if(lista[i].getNome().equals(nome)){
+                return lista[i];
+            }
+        }
+        throw new IllegalArgumentException();
     }
 
     public void autalizarAtributos(int id, char atributoMudar, String novoAtributo) {

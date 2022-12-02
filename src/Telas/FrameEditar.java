@@ -48,6 +48,9 @@ public class FrameEditar extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         tfID = new javax.swing.JTextField();
         btnConfirmaID = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        tfNomeBusca = new javax.swing.JTextField();
+        btnBuscaNome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -88,7 +91,7 @@ public class FrameEditar extends javax.swing.JFrame {
         lbAviso.setForeground(new java.awt.Color(255, 51, 51));
         lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbAviso.setText("Insira o id");
-        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnVoltar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnVoltar.setText("Voltar");
@@ -139,6 +142,11 @@ public class FrameEditar extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("ID");
 
+        tfID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfIDActionPerformed(evt);
+            }
+        });
         tfID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfIDKeyPressed(evt);
@@ -146,10 +154,21 @@ public class FrameEditar extends javax.swing.JFrame {
         });
 
         btnConfirmaID.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnConfirmaID.setText("Confirmar ID");
+        btnConfirmaID.setText("Buscar por id");
         btnConfirmaID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmaIDActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel9.setText("Nome");
+
+        btnBuscaNome.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnBuscaNome.setText("Buscar por nome");
+        btnBuscaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaNomeActionPerformed(evt);
             }
         });
 
@@ -163,6 +182,12 @@ public class FrameEditar extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
@@ -175,21 +200,22 @@ public class FrameEditar extends javax.swing.JFrame {
                             .addComponent(tfNome)
                             .addComponent(tfRG)
                             .addComponent(tfCargo)
-                            .addComponent(tfSalario)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfID))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnConfirmaID)))
+                            .addComponent(tfSalario)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(2, 2, 2)
+                                        .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnConfirmaID))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfNomeBusca)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnBuscaNome)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -202,10 +228,14 @@ public class FrameEditar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConfirmaID)
-                .addGap(18, 18, 18)
+                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(tfNomeBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnConfirmaID)
+                    .addComponent(btnBuscaNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,13 +287,13 @@ public class FrameEditar extends javax.swing.JFrame {
             lbAviso.setText("Salário inserido invalido");
             isRight = false;
         }
-        
+
         if (isRight) {
             lbAviso.setText("Insira o id");
             limpar();
         }
     }
-    
+
     private void limpar() {
         tfCargo.setText("");
         tfSalario.setText("");
@@ -271,6 +301,7 @@ public class FrameEditar extends javax.swing.JFrame {
         tfRG.setText("");
         tfNome.setText("");
         tfID.setText("");
+        tfNomeBusca.setText("");
     }
 
     private void tfCargoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCargoKeyPressed
@@ -315,9 +346,9 @@ public class FrameEditar extends javax.swing.JFrame {
             tfEndereco.grabFocus();
         }
     }//GEN-LAST:event_tfSalarioKeyPressed
-    
-    private void buscar() {
-        
+
+    private void buscarID() {
+
         try {
             func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(Integer.parseInt(tfID.getText()));
             tfNome.setText(func.getNome());
@@ -327,16 +358,17 @@ public class FrameEditar extends javax.swing.JFrame {
             tfSalario.setText(String.valueOf(func.getSalario()));
             lbAviso.setText("Edite as informações");
             tfNome.grabFocus();
+            tfNomeBusca.setText("");
         } catch (IllegalArgumentException e) {
             lbAviso.setText("Não foi posivel encontar este id");
             limpar();
         }
-        
+
     }
-    
+
 
     private void btnConfirmaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaIDActionPerformed
-        buscar();
+        buscarID();
     }//GEN-LAST:event_btnConfirmaIDActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -346,9 +378,33 @@ public class FrameEditar extends javax.swing.JFrame {
 
     private void tfIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            buscar();
+            buscarID();
         }
     }//GEN-LAST:event_tfIDKeyPressed
+
+    private void tfIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfIDActionPerformed
+
+    private void btnBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaNomeActionPerformed
+        buscarNome();
+    }//GEN-LAST:event_btnBuscaNomeActionPerformed
+    private void buscarNome() {
+        try {
+            func = TrabalhoProgramacao.listaFuncionarios.BuscarNome(tfNomeBusca.getText());
+            tfNome.setText(func.getNome());
+            tfCargo.setText(func.getCargo());
+            tfEndereco.setText(func.getEndereco());
+            tfRG.setText(func.getRG());
+            tfSalario.setText(String.valueOf(func.getSalario()));
+            lbAviso.setText("Funcionário encontrado");
+            tfID.setText("");
+            tfNome.grabFocus();
+        } catch (IllegalArgumentException e) {
+            limpar();
+            lbAviso.setText("Não foi posivel achar esse nome");
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -386,6 +442,7 @@ public class FrameEditar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscaNome;
     private javax.swing.JButton btnConfirmaID;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
@@ -397,11 +454,13 @@ public class FrameEditar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbAviso;
     private javax.swing.JTextField tfCargo;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfNomeBusca;
     private javax.swing.JTextField tfRG;
     private javax.swing.JTextField tfSalario;
     // End of variables declaration//GEN-END:variables

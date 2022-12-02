@@ -50,6 +50,9 @@ public class FrameBuscar extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         tfData = new javax.swing.JTextField();
         btnLimpar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        tfNomeBusca = new javax.swing.JTextField();
+        btnBuscaNome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -77,8 +80,8 @@ public class FrameBuscar extends javax.swing.JFrame {
         lbAviso.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         lbAviso.setForeground(new java.awt.Color(255, 51, 51));
         lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbAviso.setText("Insira o id");
-        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        lbAviso.setText("Insira o id ou nome");
+        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnVoltar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnVoltar.setText("Voltar");
@@ -103,13 +106,13 @@ public class FrameBuscar extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("<html>Digite o id do funcionário que deseja buscar</html>");
+        jLabel3.setText("<html>Digite o id ou nome do funcionário que deseja buscar</html>");
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel5.setText("ID");
 
         btnConfirmaID.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        btnConfirmaID.setText("Confirmar ID");
+        btnConfirmaID.setText("Buscas por ID");
         btnConfirmaID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmaIDActionPerformed(evt);
@@ -135,6 +138,23 @@ public class FrameBuscar extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jLabel10.setText("Nome");
+
+        tfNomeBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNomeBuscaKeyPressed(evt);
+            }
+        });
+
+        btnBuscaNome.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnBuscaNome.setText("Buscar por nome");
+        btnBuscaNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscaNomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,6 +165,16 @@ public class FrameBuscar extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(lbAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfData))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
@@ -153,29 +183,27 @@ public class FrameBuscar extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfID))
+                                    .addComponent(btnConfirmaID, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfNomeBusca)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnBuscaNome)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addComponent(tfEndereco)
                             .addComponent(tfNome)
                             .addComponent(tfRG)
                             .addComponent(tfCargo)
-                            .addComponent(tfSalario)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(lbAviso, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tfID))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnConfirmaID))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfData)))
+                            .addComponent(tfSalario))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -188,9 +216,13 @@ public class FrameBuscar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfNomeBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfirmaID)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirmaID)
+                    .addComponent(btnBuscaNome))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -215,7 +247,7 @@ public class FrameBuscar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAviso)
                     .addComponent(btnVoltar)
@@ -235,6 +267,7 @@ public class FrameBuscar extends javax.swing.JFrame {
         tfNome.setText("");
         tfID.setText("");
         tfData.setText("");
+        tfNome.setText("");
     }
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -243,7 +276,7 @@ public class FrameBuscar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnConfirmaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmaIDActionPerformed
-        buscar();
+        buscarID();
     }//GEN-LAST:event_btnConfirmaIDActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -253,14 +286,25 @@ public class FrameBuscar extends javax.swing.JFrame {
 
     private void tfIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            buscar();
+            buscarID();
         }
     }//GEN-LAST:event_tfIDKeyPressed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         limpar();
     }//GEN-LAST:event_btnLimparActionPerformed
-    private void buscar() {
+
+    private void btnBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaNomeActionPerformed
+        buscarNome();
+    }//GEN-LAST:event_btnBuscaNomeActionPerformed
+
+    private void tfNomeBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeBuscaKeyPressed
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            buscarID();
+        }
+    }//GEN-LAST:event_tfNomeBuscaKeyPressed
+    private void buscarID() {
+
         try {
             func = TrabalhoProgramacao.listaFuncionarios.getFuncionario(Integer.parseInt(tfID.getText()));
             tfNome.setText(func.getNome());
@@ -277,7 +321,24 @@ public class FrameBuscar extends javax.swing.JFrame {
             limpar();
             lbAviso.setText("Não foi posivel achar esse id");
         }
+        tfNomeBusca.setText("");
 
+    }
+
+    private void buscarNome() {
+        try {
+            func = TrabalhoProgramacao.listaFuncionarios.BuscarNome(tfNomeBusca.getText());
+            tfNome.setText(func.getNome());
+            tfCargo.setText(func.getCargo());
+            tfEndereco.setText(func.getEndereco());
+            tfRG.setText(func.getRG());
+            tfSalario.setText(String.valueOf(func.getSalario()));
+            tfData.setText(func.getContratacaoData());
+            lbAviso.setText("Funcionário encontrado");
+        } catch (IllegalArgumentException e) {
+            limpar();
+            lbAviso.setText("Não foi posivel achar esse nome");
+        }
     }
 
     /**
@@ -317,10 +378,12 @@ public class FrameBuscar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscaNome;
     private javax.swing.JButton btnConfirmaID;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -335,6 +398,7 @@ public class FrameBuscar extends javax.swing.JFrame {
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfNomeBusca;
     private javax.swing.JTextField tfRG;
     private javax.swing.JTextField tfSalario;
     // End of variables declaration//GEN-END:variables

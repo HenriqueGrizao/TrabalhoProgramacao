@@ -105,7 +105,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
         lbAviso.setForeground(new java.awt.Color(255, 51, 51));
         lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbAviso.setText("Preecha todos os campos");
-        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        lbAviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnVoltar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnVoltar.setText("Voltar");
@@ -263,7 +263,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
 
         //logica salario
         try {
-            salario = Float.parseFloat(tfSalario.getText());
+            salario = Float.parseFloat(tfSalario.getText().replace(',', '.'));
             if (salario <= 0) {
                 lbAviso.setText("Valor do salário inválido");
                 tfSalario.grabFocus();
