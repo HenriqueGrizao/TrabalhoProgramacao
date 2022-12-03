@@ -271,7 +271,7 @@ public class FrameBuscar extends javax.swing.JFrame {
         tfNome.setText("");
         tfID.setText("");
         tfData.setText("");
-        tfNome.setText("");
+        tfNomeBusca.setText("");
     }
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -304,7 +304,7 @@ public class FrameBuscar extends javax.swing.JFrame {
 
     private void tfNomeBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeBuscaKeyPressed
                 if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            buscarID();
+            buscarNome();
         }
     }//GEN-LAST:event_tfNomeBuscaKeyPressed
     /**
