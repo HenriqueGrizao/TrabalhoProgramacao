@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import Funcionarios.BancoDeDados;
 import Funcionarios.Funcionarios;
 import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
@@ -279,7 +280,7 @@ public class FrameAdicionar extends javax.swing.JFrame {
             }
         } catch (NumberFormatException e) {
             lbAviso.setText("Numero do salário Inválido ");
-            tfRG.grabFocus();
+            tfSalario.grabFocus();
             isRight = false;
         }
 

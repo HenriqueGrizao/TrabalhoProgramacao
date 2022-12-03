@@ -12,7 +12,7 @@ public class TrabalhoProgramacao {
     static FrameBuscar buscar = new FrameBuscar();
     /*Inicialização da classe ListaFuncionarios como estática  para que a mesma
     *lista/vetor possa ser usada por todas as classes  */
-    static ListaFuncionarios listaFuncionarios = new ListaFuncionarios();
+    public static ListaFuncionarios listaFuncionarios = new ListaFuncionarios();
 
     public static void main(String[] args) {
         inicial.setVisible(true);

@@ -11,7 +11,7 @@ public class Funcionarios {
     private String contratacaoData;
     private String RG;
     private String endereco;
-    private static int NumeroFuncionarios;
+    public static int NumeroFuncionarios;
     private int id;
 
     public Funcionarios(String nome, String cargo, float salario, String contratacaoData, String RG, String endereco) {
@@ -24,10 +24,20 @@ public class Funcionarios {
         this.RG = RG;
         this.endereco = endereco;
     }
+    
+    public Funcionarios(String nome, String cargo, float salario, String contratacaoData, String RG, String endereco, int id) {
+        this.id = id;
+        this.nome = nome;
+        this.cargo = cargo;
+        this.salario = salario;
+        this.contratacaoData = contratacaoData;
+        this.RG = RG;
+        this.endereco = endereco;
+    }
 
     @Override
     public String toString() {
-        return nome + " Cargo - " + cargo + " salario - " + salario + " RG - " + RG + " Data da contratação - " + contratacaoData + " Endereço - " + endereco;
+        return nome + "-" + cargo + "-" + salario + "-" + RG + "-" + contratacaoData + "-" + endereco + "-" + id;
     }
 //Inicio Getters e Setters
     public String getEndereco() {
@@ -97,6 +107,10 @@ public class Funcionarios {
 
     public int getId() {
         return id;
+    }
+    
+    static public int getNumerosFuncionarios(){
+        return NumeroFuncionarios;
     }
 
 }

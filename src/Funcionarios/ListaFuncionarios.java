@@ -99,7 +99,14 @@ public class ListaFuncionarios {
             }
         }
         throw new IllegalArgumentException();
-        
+    }
+    /**
+     * Retorna um funcionario baseado no seu indicec da lista
+     * @param id indice do funcionario na lista
+     * @return funionario que corresponde a posição na lista
+     */
+    public Funcionarios getFuncionarioIndice(int id) {
+        return lista[id];
     }
 /**
  * Atualizar  um atributo de um funcionário  baseado em seu id 
