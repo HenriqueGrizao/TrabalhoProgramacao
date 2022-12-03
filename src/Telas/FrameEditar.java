@@ -166,6 +166,12 @@ public class FrameEditar extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel9.setText("Nome");
 
+        tfNomeBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNomeBuscaKeyPressed(evt);
+            }
+        });
+
         btnBuscaNome.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         btnBuscaNome.setText("Buscar por nome");
         btnBuscaNome.addActionListener(new java.awt.event.ActionListener() {
@@ -399,6 +405,12 @@ public class FrameEditar extends javax.swing.JFrame {
     private void btnBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaNomeActionPerformed
         buscarNome();
     }//GEN-LAST:event_btnBuscaNomeActionPerformed
+
+    private void tfNomeBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeBuscaKeyPressed
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            buscarNome();
+        }
+    }//GEN-LAST:event_tfNomeBuscaKeyPressed
     /**
      * Busca um funcionário com base no nome inserido no tfNomeBusca e salva as
      * informações nos jTextField correspondentes
