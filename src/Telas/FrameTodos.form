@@ -167,7 +167,7 @@
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Suseso na constru&#xe7;&#xe3;o da tabela"/>
+        <Property name="text" type="java.lang.String" value="Sucesso na constru&#xe7;&#xe3;o da tabela"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

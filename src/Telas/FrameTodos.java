@@ -81,7 +81,7 @@ public class FrameTodos extends javax.swing.JFrame {
 
         lbAviso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbAviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbAviso.setText("Suseso na construção da tabela");
+        lbAviso.setText("Sucesso na construção da tabela");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 51, 51));
